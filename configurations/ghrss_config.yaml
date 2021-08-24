@@ -1,0 +1,126 @@
+################################################################################
+#                            THE CONFIGURATION FILE.
+# -------------------------------------------------------------------------------
+# WARNING: Keep indentation consistent while specifying inputs through this .yaml
+# file. Otherwise the file won't be parsed in the first place. Also, don't indent
+# hashs.
+# -------------------------------------------------------------------------------
+# Sets the configuration of the pipeline. The following inputs are to be specified
+# by the user:
+# 
+# PIPELINE VARIABLES:
+#    
+#    nodes: The particular nodes where you wish to process data.
+#           For a single, stand-alone machine, just specify the
+#           node id of that machine.    
+#                
+#    dates: The particular dates for which you wish to process 
+#           data. Three different date lists can be defined in
+#           this file, one for each type of possible backend.
+#           The possible backends are:
+#               1. GMRT Software Backend (GSB)
+#               2. GMRT Wideband Backend (GWB)
+#               3. SIMulated Telescope Data (SIM)
+#           The main setup script, "setup_ffa.py", differentiates
+#           between the different backend types and chooses the
+#           dates accordingly.
+#            
+#    cores: The number of cores on each node.
+#    
+# PATH VARIABLES:
+#    
+#    store_path:    The absolute path of the directory in which the
+#                   data is present in each node.
+#    pipeline_path: The absolute path of the directory in which all
+#                   pipeline scripts are stored.
+#
+# While the other inputs should not (ideally) be modified directly by the user
+# (if you are not sure about what you are doing, you may leave them be):
+#
+# RFI MASKING:
+#
+#    Bad channels: The bad channels for each backend.
+#
+# DEDISPERSION PLAN:
+#
+#    DM_highest/DM_lowest: The highest/lowest DM to search over.
+#    nsub: Number of sub-channels.
+#    dDM: The DM step.
+#    DS: The downsampling factor.
+#     
+# FOLDING:
+#
+#    PD/PDD:   The period derivative and double derivative to search over.
+#              (Default: 0.0 and 0.0. No need to search over period 
+#              derivatives since not looking for binaries.)
+#    NUMBINS:  Number of phase bins to fold over.
+#    NSUBCHAN: Number of sub-channels to fold over.
+#    NPART:    Number of sub-integrations to fold over.
+#
+#-------------------------------------------------------------------------------
+################################################################################
+
+pipeline_variables:
+
+    cores: 32
+    nodes: fs10 
+
+# Multiple dates can be defined here. However, keep in mind that only one line
+# should remain uncommented. The dates left uncommented (for all the 3 different
+# types of backend) would be the only ones that would be read and processed by
+# the pipeline. While uncommenting dates, make sure to keep indentation consistent
+# (otherwise the .yaml file won't be parsed at all).
+
+    dates:
+        GSB: TEST 
+#       GSB: 2020-11-10, 2020-11-11, 2020-11-12, 2020-11-13, 2020-11-14
+        GWB: HR_1936-30 
+#       GWB: 2020-11-10, 2020-11-11, 2020-91-12, 2020-11-13, 2020-11-14
+        SIM: 30-11-2013_1
+#       SIM: 2020-11-10, 2020-11-11, 2020-11-12, 2020-11-13, 2020-11-14
+    
+path_variables:
+
+    store_path: /Data/ssingh/GWB_processing/store/ 
+    pipeline_path: /Data/ssingh/softwares/GHRSS_FFA_Pipeline_GWB.ver2/
+
+RFI Masking:
+
+    Bad channels: 
+        GSB: 1:20,1000:1024
+        GWB: 1:650,2400:2800,4000:4096
+        SIM: 1:650,2400:2800,4000:4096
+
+    FREQ SIGMA: 10
+
+DDPlan:
+
+    GSB:
+        DM_highest: 500
+        DM_lowest: 0
+        nsub: 32    
+        dDM: 0.10
+        DS: 16
+        numDMs: 5000
+    GWB:    
+        DM_highest: 500
+        DM_lowest: 0
+        nsub: 1024
+        dDM: 0.10
+        DS: 16
+        numDMs: 5000
+    SIM:    
+        DM_highest: 500
+        DM_lowest: 0
+        nsub: 1024
+        dDM: 0.10
+        DS: 8
+        numDMs: 5000
+        
+Folding:
+
+    PD: 0.0
+    PDD: 0.0
+    NUMBINS: 64
+    NSUBCHAN: 128
+    NPART: 64

@@ -1,0 +1,60 @@
+#*#*#gptool input file v2.0#*#*#
+-------------------------------------------------
+#****Mode of observation****#
+PA		: Beam mode
+0		: Polarization mode (0-> intesity, 1-> stokes data)
+1		: Sample size of data (in bytes, usually 2)
+-------------------------------------------------
+#****Observation Paramaters****#
+306		: Frequency band (lowest value in Mhz)
+33.333333	: Bandwidth(in Mhz)
++1		: Sideband flag (-1-> decreasing +1-> increasing)
+1024		: Number of channels
+0.03072		: Sampling Interval (in ms)
+-------------------------------------------------
+#****Pulsar Parameters****#
+J1807-0847	: Pulsar name
+454.3521192	: Pulsar period (in milliseconds)
+504.7		: DM (in pc/cc)
+-------------------------------------------------
+#****Dedispersion & Folding parameters****#
+-1		: Number of bins in folded profile (-1 for native resolution)
+0		: Phase offset for folding
+12		: Number of coefficients for each polyco span (nCoeff)
+60		: Validity of each span (nSpan in mins)
+12		: Maximum hour angle
+-------------------------------------------------
+#****Display Parameters****#
+0		: Polarization channel to display (0-3 or -1 for all four)
+21		: Display window size (seconds, 0-> pulsar period)
+0		: Update mode	    	(0-> automatic, 1-> manual)
+0		: Time delay between window updates (0-> no delay, 1-> emulate real time)
+-------------------------------------------------
+#****Spectral line RFI mitigation options****#
+20		: Number of channels to flag at band beginning
+24		: Number of channels to flag at band end
+1		: Frequency flagging options (0-> no flagging, 1-> real time calculation)
+3		: Bandshape to use for frequency flagging (1-> normalized bandshape, 2-> mean-to-rms bandshape, 3-> Both)
+4.0		: Threshold for frequency flagging (in units of RMS deviation)
+-------------------------------------------------
+#****Time domain impulsive RFI mitigation options****#
+1		: Time flagging options 	(0-> no flagging, 1-> real time calculation)
+1		: Data normalization before filtering (0-> no, 1-> yes)
+1		: Time flagging algorithm	(1-> histogram based, 2-> MAD based)
+3.5		: Threshold for time flagging (in units of RMS deviation)
+-------------------------------------------------
+#****Other options****#
+10		: Smoothing window size for bandshape normalization (in number of channels)
+1		: Normalization procedure (1-> cumulative smooth bandshape, 2-> externally supplied bandshape.dat)
+1		: Replace by median values (0-> Ignore flagged samples, 1-> Replace flagged samples by window median, 2-> Replace by smooth bandshape)
+-------------------------------------------------
+#****I/O options****#
+0		: Write channel flag file (0-> no,1-> yes)
+0		: Write time flag file (0-> no, 1-> yes)
+1		: write out filtered 2D raw data (0-> no, 1-> yes)
+0		: Write out fullDM.raw	(0-> no, 1-> yes)
+-------------------------------------------------
+#****manual flagging options****#
+0		: Number of bad channel blocks
+List		: #in next line, example: [200,400],[1200,1400]
+

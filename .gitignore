@@ -1,0 +1,7 @@
+*.o
+*.so
+*.log
+.vscode
+*.py[cod]
+__pycache__
+.mypy_cache
