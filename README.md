@@ -105,6 +105,6 @@ The best way to ensure that all these dependencies are present on your machine i
 [riptide]: https://github.com/v-morello/riptide
 [gptool]: https://github.com/chowdhuryaditya/gptool
 [issues]: https://github.com/astrogewgaw/ghrss-ffa/issues
-[license]: https://img.shields.io/github/license/astrogewgaw/ghrss?style=for-the-badge
+[license]: https://img.shields.io/github/license/astrogewgaw/ghrss-ffa?style=for-the-badge
 [ghrss-1-badge]: https://img.shields.io/badge/arXiv-1509.07177-B31B1B.svg?style=for-the-badge
 [ghrss-2-badge]: https://img.shields.io/badge/arXiv-1906.09574-B31B1B.svg?style=for-the-badge
