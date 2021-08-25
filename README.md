@@ -1,6 +1,6 @@
 <div align="center">
 
-# The GHRSS FFA Pipeline
+# ffapipe: The GHRSS FFA Pipeline
 
 ![License][license]
 [![GHRSS Paper 1][ghrss-1-badge]][ghrss-1]
@@ -12,7 +12,7 @@
 [**Sky Coverage**](#sky-coverage)<br/>
 [**Directories**](#directories)<br/>
 [**Scripts**](#scripts)<br/>
-[**Dependencies**](#dependencies<br/>)
+[**Dependencies**](#dependencies)<br/>
 [**Notes**](#notes)<br/>
 
 </div>
@@ -76,7 +76,14 @@ The pipeline relies on the following Python packages:
 * riptide
 * matplotlib
 
-The best way to ensure that all these dependencies are present on your machine is to use a [*conda environment*][conda]. The [`the_monitor.py`](./the_monitor.py) script relies on the `curses` package in the Python standard library, which in turn depends on the `ncurses` backend. This implies that this particular script may not run on a Windows system. If you find a bug  in the pipeline or have any issues in running it on your system, let me know in the [**issues**][issues] 😁 👍 !
+The best way to ensure that all these dependencies are present on your machine is to use a [*conda environment*][conda]. The [`the_monitor.py`](./the_monitor.py) script relies on the `curses` package in the Python standard library, which in turn depends on the `ncurses` backend. This implies that this particular script may not run on a Windows system.
+
+Additionally, this pipeline has the following non-Python dependencies:
+
+* [**PRESTO**][presto]
+* [**GPTool**][gptool]
+
+There are also certain in-house scripts that this pipeline depends on for processes such as zero DM filtering, filterbank file creation, and so on. I will try to add these scripts to this repository soon 😅. If you find a bug in the pipeline or have any issues in running it on your system, let me know in the [**issues**][issues] 😁 👍 !
 
 ## Notes
 
