@@ -54,7 +54,7 @@ The pipeline searches **4** different period ranges, and the parameters of the F
 
 There are 4 main directories:
 
-1. `configurations`: This directory stores the configurations for the pipeline. The [`ghrss_config.yaml`](./configurations/ghrss_config.yaml) contains the configuration for the main pipeline, whereas the [`ffa_config`](../configurations/ffa_config) directory contains the configurations for the different parameter spaces searched for by **riptide**. There is a [`manager_config.yaml`](./configurations/ffa_config/manager_config.yaml) that stores the overall configuration for riptide, and then there are 4 different files for each different period space searched by our FFA pipeline:
+1. `configurations`: This directory stores the configurations for the pipeline. The [`ghrss_config.yaml`](./configurations/ghrss_config.yaml) contains the configuration for the main pipeline, whereas the [`ffa_config`](./configurations/ffa_config) directory contains the configurations for the different parameter spaces searched for by **riptide**. There is a [`manager_config.yaml`](./configurations/ffa_config/manager_config.yaml) that stores the overall configuration for riptide, and then there are 4 different files for each different period space searched by our FFA pipeline:
 
     * [`config_short.yaml`](./configurations/ffa_config/config_short.yaml)
     * [`config_mediium.yaml`](./configurations/ffa_config/config_medium.yaml)
