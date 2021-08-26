@@ -3,13 +3,15 @@
 # ffapipe: The GHRSS FFA Pipeline
 
 ![License][license]
-[![GHRSS Paper 1][ghrss-1-badge]][ghrss-1]
-[![GHRSS Paper 2][ghrss-2-badge]][ghrss-2]
+![Stars][stars]
+[![GHRSS Paper 1][arXiv1]][GHRSS1]
+[![GHRSS Paper 2][arXiv2]][GHRSS2]
 
 ## Contents
 
 [**Citation**](#citation)<br/>
 [**Sky Coverage**](#sky-coverage)<br/>
+[**DM and Period Coverage**](#dm-and-period-coverage)<br/>
 [**Directories**](#directories)<br/>
 [**Scripts**](#scripts)<br/>
 [**Dependencies**](#dependencies)<br/>
@@ -19,7 +21,7 @@
 
 <div align="justify">
 
-This is the code being used to analyse data obtained from the [**G**iant **M**eterwave **R**adio **T**elescope (**GMRT**)][gmrt] as part of the **G**MRT **H**igh **R**esolution **S**outhern **S**ky (**GHRSS**) survey. The **GHRSS** survey has discovered <NEWPSRS> new pulsars and <NEWRRATS> new RRATs till date. A thorough overview of the survey patameters and design can be found [**here**][ghrss-1], and additional results can be found [**here**][ghrss-2]. I wrote this code in 2019 as part of my thesis project for my Bachelor's degree. It is written in pure Python, but it depends on the [**PRESTO**][presto] package for some of its processing capabilities (such as dedispersion and folding). This pipeline uses [**riptide**][riptide], an FFA implementation written by Vincent Morello at the University of Manchester.
+This is the code being used to analyse data obtained from the [**G**iant **M**eterwave **R**adio **T**elescope (**GMRT**)][gmrt] as part of the **G**MRT **H**igh **R**esolution **S**outhern **S**ky (**GHRSS**) survey. The **GHRSS** survey has discovered <NEWPSRS> new pulsars and <NEWRRATS> new RRATs till date. A thorough overview of the survey patameters and design can be found [**here**][GHRSS1], and additional results can be found [**here**][GHRSS2]. I wrote this code in 2019 as part of my thesis project for my Bachelor's degree. It is written in pure Python, but it depends on the [**PRESTO**][presto] package for some of its processing capabilities (such as dedispersion and folding). This pipeline uses [**riptide**][riptide], an FFA implementation developed by Vincent Morello at the University of Manchester.
 
 ## Citation
 
@@ -29,13 +31,24 @@ On the way 😁 !
 
 <br/><br/>
 <img
-    src="skycov.jpg"
+    src="skycov.png"
     alt="Sky Coverage"
     align="center"
 />
 <br/><br/>
 
-(a) Sky coverage in Galactic coordinates of recent and ongoing pulsar surveys around 300 MHz; GBT drift scan (pink) at 350 MHz, GBNCC (purple) at 350 MHz, and GHRSS (green) at 322 MHz. Red dots are the pulsars discovered with the GHRSS survey. (b) Sky coverage in right ascension and declination. Taken from [here][ghrss-1].
+**GHRSS survey sky coverage and discoveries**: Part of the target sky that has already been covered by the survey is marked as a deep blue shaded region. Part of the sky that has not yet been covered by the survey is marked as a light blue shaded region. **Image Credit** : *Shreya Umesh (NIUS student)*.
+
+## DM and Period Coverage
+
+The pipeline searches dispersion measures up to **500** pc per cubic centimeter, in steps of **0.1** (*GWB*) or **0.2** (*GSB*) pc per cubic centimeter. This amounts to **5000** or **2500** DM trials, respectively.
+
+The pipeline searches **4** different period ranges, and the parameters of the FFA search are set accordingly. These are:
+
+* **0.1** to **0.5** seconds
+* **0.5** to **2.0** seconds
+* **2.0** to **10.0** seconds
+* **10.0** to **100.0** seconds
 
 ## Directories
 
@@ -68,13 +81,12 @@ The pipeline's run can be monitored using the [`the_monitor.py`](./the_monitor.p
 
 The pipeline relies on the following Python packages:
 
-* pytz
-* yaml
-* numpy
-* pprint
-* astropy
-* riptide
-* matplotlib
+* [**pytz**][pytz]
+* [**yaml**][yaml]
+* [**numpy**][numpy]
+* [**astropy**][astropy]
+* [**riptide**][riptide]
+* [**matplotlib**][matplotlib]
 
 The best way to ensure that all these dependencies are present on your machine is to use a [*conda environment*][conda]. The [`the_monitor.py`](./the_monitor.py) script relies on the `curses` package in the Python standard library, which in turn depends on the `ncurses` backend. This implies that this particular script may not run on a Windows system.
 
@@ -98,20 +110,29 @@ There are also certain in-house scripts that this pipeline depends on for proces
 
     </div>
 
-2. This pipeline uses an old version of **riptide** (v0.0.1, to be precise 😅). The code here *may* work with `v0.0.2` and `v0.0.3`, but they definitely would not work with any of the newer versions (`v0.1.0` and beyond) because of a massive refactor of the entire codebase. A version of the pipeline that works with newer versions of the pipeline is in the works 🔨.
+2. This pipeline uses an old version of [**riptide**][riptide] (v0.0.1, to be precise 😅). The codes here *may* work with `v0.0.2` and `v0.0.3`, but they definitely would not work with any of the newer versions (`v0.1.0` and beyond) because of a massive refactor of riptide's entire codebase. A version of the pipeline that works with newer versions of riptide is in the works 🔨.
 
 </div>
 
 [cite]: https://todo.fixme
 [cite-badge]: https://todo.fixme
+[GHRSS1]: https://arxiv.org/abs/1509.07177
+[GHRSS2]: https://arxiv.org/abs/1906.09574
+
 [gmrt]: http://gmrt.ncra.tifr.res.in
 [conda]: https://docs.conda.io/en/latest
-[ghrss-1]: https://arxiv.org/abs/1509.07177
-[ghrss-2]: https://arxiv.org/abs/1906.09574
-[presto]: https://github.com/scottransom/presto
-[riptide]: https://github.com/v-morello/riptide
-[gptool]: https://github.com/chowdhuryaditya/gptool
 [issues]: https://github.com/astrogewgaw/ghrss-ffa/issues
+
+[stars]: https://img.shields.io/github/stars/GHRSS/ffapipe?style=for-the-badge
+[arXiv1]: https://img.shields.io/badge/arXiv-1509.07177-B31B1B.svg?style=for-the-badge
+[arXiv2]: https://img.shields.io/badge/arXiv-1906.09574-B31B1B.svg?style=for-the-badge
 [license]: https://img.shields.io/github/license/astrogewgaw/ghrss-ffa?style=for-the-badge
-[ghrss-1-badge]: https://img.shields.io/badge/arXiv-1509.07177-B31B1B.svg?style=for-the-badge
-[ghrss-2-badge]: https://img.shields.io/badge/arXiv-1906.09574-B31B1B.svg?style=for-the-badge
+
+[yaml]: https://pyyaml.org/
+[numpy]: https://numpy.org/
+[astropy]: https://www.astropy.org/
+[matplotlib]: https://matplotlib.org/
+[pytz]: https://pythonhosted.org/pytz/
+[riptide]: https://github.com/v-morello/riptide
+[presto]: https://github.com/scottransom/presto
+[gptool]: https://github.com/chowdhuryaditya/gptool
