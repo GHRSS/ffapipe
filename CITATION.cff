@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+
+type: software
+title: "ffapipe"
+url: "https://github.com/GHRSS/ffapipe"
+message: "If you use ffapipe, please cite it as below:"
+
+authors:
+  - given-names: Ujjwal
+    family-names: Panda
+    email: ujjwalpanda97@gmail.com
+    orcid: "https://orcid.org/0000-0002-2441-4174"
+    affiliation: "National Centre for Radio Astrophysics (NCRA)"
+
+preferred-citation:  
+  authors:
+    - family-names: "Singh"
+      given-names: "Shubham"
+      affiliation: "National Centre for Radio Astrophysics (NCRA)"
+
+    - family-names: "Roy"
+      given-names: "Jayanta"
+      orcid: "https://orcid.org/0000-0002-2892-8025"
+      affiliation: "National Centre for Radio Astrophysics (NCRA)"
+    
+    - family-names: "Panda"
+      given-names: "Ujjwal"
+      orcid: "https://orcid.org/0000-0002-2441-4174"
+      affiliation: "National Centre for Radio Astrophysics (NCRA)"
+    
+    - family-names: "Bhattacharyya"
+      given-names: "Bhaswati"
+      orcid: "https://orcid.org/0000-0002-6287-6900"
+      affiliation: "National Centre for Radio Astrophysics (NCRA)"
+    
+    - family-names: "Morello"
+      given-names: "Vincent"
+      affiliation: "Jodrell Bank Centre for Astrophysics"
+    
+    - family-names: "Stappers"
+      given-names: "Ben W."
+      affiliation: "Jodrell Bank Centre for Astrophysics"
+
+    - family-names: "Ray"
+      given-names: "Paul S."
+      orcid: "https://orcid.org/0000-0002-5297-5278"
+      affiliation: "U.S. Naval Research Laboratory"
+      
+    - family-names: "McLaughlin"
+      given-names: "Maura A."
+      orcid: "https://orcid.org/0000-0001-7697-7422"
+      affiliation: "Center for Gravitational Waves and Cosmology, West Virginia University"
+  
+  year: 2022
+  type: article
+  journal: "The Astrophysical Journal"
+  url: "https://doi.org/10.3847/1538-4357/ac7b91"
+  title: "The GMRT High Resolution Southern Sky Survey for Pulsars and Transients. III. Searching for Long-period Pulsars"
